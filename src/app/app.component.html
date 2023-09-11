@@ -1,0 +1,19 @@
+<div class="container">
+  <header>
+    <h1>Notes App</h1>
+  </header>
+  <main>
+    <div class="note" *ngFor="let note of notes">
+      <h4>{{note.title}}</h4>
+      <span>{{note.desc}}</span>
+      <button (click)="deleteNote(note.id)">Delete</button>
+    </div>
+    <div class="note">
+      <form #addNoteForm="ngForm">
+        <input required type="text" placeholder="Note Title" [(ngModel)]="title" name="Title" />
+        <textarea placeholder="Note Body" [(ngModel)]="body" name="Body"></textarea>
+        <input type="submit" #noteSubmit title="Add Note" (click)="submitForm()" />
+      </form>
+    </div>
+  </main>
+</div>
